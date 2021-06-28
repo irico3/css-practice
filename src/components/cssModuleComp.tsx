@@ -1,26 +1,25 @@
-import React, { FC } from 'react';
+import React, { FC } from 'react'
+const styles = require('./comp.module.css') //ts対策
 
-export const CssModuleComp = () => {
-  return (
-    <section className="charaSection">
-      <ul className="charaSection__list">
-        <Card charaName="kirby" />
-        <Card charaName="waddleDee" />
-        <Card charaName="dedede" />
-        <Card charaName="metaKnight" />
-      </ul>
-    </section>
-  )
-}
+export const CssModuleComp = () => (
+  <section className={styles.charaSection}>
+    <ul className={styles.list}>
+      <Card charaName="kirby" />
+      <Card charaName="waddleDee" />
+      <Card charaName="dedede" />
+      <Card charaName="metaKnight" />
+    </ul>
+  </section>
+)
 
 type CardProps = {
   charaName: 'kirby' | 'waddleDee' | 'metaKnight' | 'dedede'
 }
 
 const Card: FC<CardProps> = ({ charaName }) => (
-  <li className="charaSection__list__item">
-    <a href="" className={`charaSection__list__item__inner--${charaName}`}>
-      <span className="charaSection__list__item__inner__name">{charaName}</span>
+  <li className={styles.item}>
+    <a href="/" className={styles[`inner--${charaName}`]}>
+      <span className={styles.name}>{charaName}</span>
     </a>
-  </li>
+  </li >
 )
